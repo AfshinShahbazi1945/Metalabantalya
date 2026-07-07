@@ -1,0 +1,83 @@
+/* ============================================================
+   METALAB — Ana Sayfa / Gateway (gateway.css)
+   İki laboratuvara yönlendiren tam ekran grafit sahne
+   ============================================================ */
+
+.gate{
+  min-height:100svh; display:flex; flex-direction:column;
+  background:var(--ink); color:var(--white); position:relative; overflow:hidden;
+}
+.gate__bg{ position:absolute; inset:0; z-index:0; }
+.gate__bg video,.gate__bg img{ width:100%; height:100%; object-fit:cover; opacity:.22; }
+.gate__bg::after{
+  content:""; position:absolute; inset:0;
+  background:radial-gradient(120% 80% at 50% 0%, rgba(21,24,26,.55) 0%, var(--ink) 78%);
+}
+
+/* Üst bar */
+.gate__top{ position:relative; z-index:3; display:flex; align-items:center; justify-content:space-between; padding:26px var(--pad); }
+.gate__top .brand__mark{ color:var(--white); font-size:26px; }
+.gate__top .brand__sub{ color:#E4AC4E; border-left-color:var(--ink-line); }
+.gate__acc{ font-family:var(--font-mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted-on-dark); }
+.gate__acc b{ color:var(--white); font-weight:400; }
+
+/* Merkez giriş */
+.gate__core{ position:relative; z-index:2; flex:1; display:flex; flex-direction:column; justify-content:center; padding:clamp(30px,5vw,60px) var(--pad); }
+.gate__intro{ max-width:760px; margin-bottom:clamp(40px,6vw,72px); }
+.gate__intro .eyebrow{ color:#E4AC4E; margin-bottom:24px; }
+.gate__intro h1{
+  font-family:var(--font-serif); font-weight:400; color:var(--white);
+  font-size:clamp(2.8rem,7vw,5.6rem); line-height:1.0; letter-spacing:-.015em;
+}
+.gate__intro h1 em{ font-style:italic; color:#E4AC4E; }
+.gate__intro p{ color:var(--muted-on-dark); font-size:clamp(1.02rem,1.5vw,1.25rem); max-width:54ch; margin-top:24px; line-height:1.6; }
+
+/* İki panel */
+.entries{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--ink-line); border-top:1px solid var(--ink-line); border-bottom:1px solid var(--ink-line); }
+.entry{
+  position:relative; display:block; padding:clamp(30px,4vw,52px) clamp(26px,3.5vw,48px);
+  background:var(--ink); overflow:hidden; isolation:isolate;
+  transition:background .5s var(--ease);
+}
+.entry__bg{
+  position:absolute; inset:0; z-index:-1; background-size:cover; background-position:center;
+  opacity:0; transform:scale(1.06); transition:opacity .6s var(--ease), transform 1.2s var(--ease);
+}
+.entry::after{ content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(180deg, rgba(21,24,26,.2), rgba(21,24,26,.9)); opacity:0; transition:opacity .6s; }
+.entry:hover .entry__bg{ opacity:.5; transform:scale(1); }
+.entry:hover::after{ opacity:1; }
+
+.entry__idx{ font-family:var(--font-mono); font-size:12px; letter-spacing:.14em; color:var(--e-accent); margin-bottom:auto; }
+.entry__row{ display:flex; align-items:flex-end; justify-content:space-between; gap:20px; margin-top:clamp(50px,8vw,90px); }
+.entry__name{ font-family:var(--font-serif); font-size:clamp(2rem,4.4vw,3.6rem); color:var(--white); line-height:.98; }
+.entry__name span{ display:block; color:var(--e-accent); }
+.entry__desc{ color:var(--muted-on-dark); font-size:14.5px; max-width:34ch; margin-top:18px; line-height:1.55; }
+.entry__rule{ height:2px; background:var(--e-accent); width:44px; margin-top:26px; transition:width .5s var(--ease); }
+.entry:hover .entry__rule{ width:120px; }
+.entry__go{ display:inline-flex; align-items:center; gap:10px; font-family:var(--font-mono); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--white); margin-top:26px; }
+.entry__go .ar{ transition:transform .4s var(--ease); }
+.entry:hover .entry__go .ar{ transform:translateX(6px); }
+
+.entry--gubre{ --e-accent:#E4AC4E; }
+.entry--tarim{ --e-accent:#4F9B77; }
+
+/* Alt bilgi */
+.gate__foot{ position:relative; z-index:2; }
+.gate__foot .scale{ opacity:.5; }
+.gate__foot-row{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; padding:22px var(--pad); font-family:var(--font-mono); font-size:11px; letter-spacing:.08em; color:var(--muted-on-dark); }
+.gate__foot-row a:hover{ color:var(--white); }
+
+/* Giriş animasyonu */
+@keyframes rise{ from{ opacity:0; transform:translateY(24px); } to{ opacity:1; transform:none; } }
+.anim{ animation:rise .9s var(--ease) both; }
+.anim-1{ animation-delay:.05s; } .anim-2{ animation-delay:.18s; } .anim-3{ animation-delay:.3s; } .anim-4{ animation-delay:.42s; }
+
+@media(max-width:760px){
+  .entries{ grid-template-columns:1fr; }
+  .entry__row{ margin-top:40px; }
+  .gate__acc{ display:none; }
+}
+@media(prefers-reduced-motion:reduce){
+  .gate__bg video{ display:none; }
+  .anim{ animation:none; }
+}
