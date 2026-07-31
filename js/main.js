@@ -55,3 +55,15 @@
     });
   }
 })();
+
+/* 5. Analiz akordeonları: URL ile gelen grubu aç */
+(function(){
+  var id = window.location.hash ? window.location.hash.slice(1) : "";
+  if(id){
+    var target=document.getElementById(id);
+    if(target && target.tagName.toLowerCase()==="details"){
+      target.open=true;
+      setTimeout(function(){target.scrollIntoView({behavior:"smooth",block:"start"});},180);
+    }
+  }
+})();

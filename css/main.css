@@ -308,3 +308,76 @@ table.analiz td.dur{ font-family:var(--font-mono); font-size:12px; color:var(--m
   *{ animation:none!important; transition:none!important; scroll-behavior:auto!important; }
   .reveal{ opacity:1; transform:none; }
 }
+
+/* ============================================================
+   2026 REDESIGN — USUL inspired, modern laboratory identity
+   ============================================================ */
+:root{
+  --ink:#12352d; --ink-soft:#1d473d; --paper:#f7f6f1; --paper-2:#ecefe9;
+  --card:#fff; --white:#fff; --text:#23352f; --muted:#687770;
+  --line:#d8dfda; --font-serif:"DM Serif Display",Georgia,serif;
+  --font-sans:"Inter",Arial,sans-serif; --font-mono:"Inter",Arial,sans-serif;
+  --r:18px; --shadow:0 24px 70px rgba(17,53,45,.10);
+}
+html[data-lab="gubre"]{--accent:#bb7b2e;--accent-soft:#f5eadb;--accent-lite:#e9b46d;--on-accent:#fff}
+html[data-lab="tarim"]{--accent:#2d7a5b;--accent-soft:#e3f0e9;--accent-lite:#8bc5a9;--on-accent:#fff}
+body{font-family:var(--font-sans);background:var(--paper);color:var(--text);font-weight:400}
+h1,h2,h3,.display,.title,.cat__name,.analysis-accordion__title{font-family:var(--font-serif);font-weight:400;letter-spacing:-.02em}
+.wrap{max-width:1240px}
+.nav{background:rgba(247,246,241,.94);backdrop-filter:blur(18px);box-shadow:0 1px 0 rgba(18,53,45,.08)}
+.brand__mark{font-family:var(--font-serif);letter-spacing:.02em;font-size:25px;color:var(--ink)}
+.brand__sub{font-family:var(--font-sans);font-size:10px;letter-spacing:.19em;font-weight:600;color:var(--accent)}
+.nav__links a{font-family:var(--font-sans);font-size:13px;font-weight:500;letter-spacing:.02em}
+.btn{border-radius:999px;font-family:var(--font-sans);font-weight:600;padding:13px 22px;box-shadow:0 8px 25px rgba(18,53,45,.12)}
+.hero{min-height:720px;background:var(--ink)}
+.hero__media:after{background:linear-gradient(90deg,rgba(9,37,31,.93) 0%,rgba(9,37,31,.72) 50%,rgba(9,37,31,.28) 100%)}
+.hero__in{padding-block:clamp(100px,11vw,165px)}
+.display{font-size:clamp(3.2rem,7vw,6.4rem);line-height:.93;max-width:11ch}
+.hero__desc{font-size:1.08rem;line-height:1.75;max-width:58ch}
+.hero__badge{border-radius:16px;background:rgba(255,255,255,.09);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.18)}
+.stats{margin-top:-45px;position:relative;z-index:3;border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
+.stat{background:#fff;padding:30px}
+.stat__n{font-family:var(--font-serif);font-size:2.5rem;color:var(--ink)}
+.section{padding-block:clamp(78px,9vw,130px)}
+.title{font-size:clamp(2.5rem,5vw,4.7rem);line-height:1.02;color:var(--ink)}
+.eyebrow{font-family:var(--font-sans);font-weight:700;letter-spacing:.17em}
+.cat{border-radius:18px;background:#fff;margin-bottom:14px;border:1px solid var(--line);box-shadow:0 10px 35px rgba(17,53,45,.05);transition:.3s ease}
+.cat:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:color-mix(in srgb,var(--accent) 35%,var(--line))}
+.cat__go a{border-radius:50%;background:var(--accent);color:#fff}
+.method,.value,.info{border-radius:16px}.methods,.values,.info-list{gap:14px;background:transparent;border:0}
+.split__img img{border-radius:22px;box-shadow:var(--shadow)}
+.pagehead{background:linear-gradient(135deg,var(--ink),#0b2923)}
+.pagehead__in{padding-block:clamp(72px,9vw,125px)}
+.pagehead h1{font-size:clamp(3rem,6vw,5.5rem)}
+.cta{background:linear-gradient(120deg,var(--ink),#0d2b25)}
+.footer{background:#0a2721}
+
+/* Analysis accordion */
+.analysis-accordion{border:1px solid var(--line);border-radius:22px;background:#fff;margin:0 0 20px;overflow:hidden;box-shadow:0 12px 42px rgba(18,53,45,.06)}
+.analysis-accordion>summary{list-style:none;display:grid;grid-template-columns:52px 1fr auto 44px;align-items:center;gap:18px;padding:28px 30px;cursor:pointer;transition:.25s ease}
+.analysis-accordion>summary::-webkit-details-marker,.analysis-subaccordion>summary::-webkit-details-marker{display:none}
+.analysis-accordion>summary:hover{background:var(--accent-soft)}
+.analysis-accordion__num{font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--accent)}
+.analysis-accordion__title{font-size:clamp(1.65rem,3vw,2.45rem);color:var(--ink)}
+.analysis-accordion__count{font-size:12px;font-weight:600;color:var(--muted);background:var(--paper-2);padding:7px 12px;border-radius:999px;white-space:nowrap}
+.analysis-accordion__icon,.analysis-subaccordion__icon{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:#fff;font-size:20px;transition:.3s}
+.analysis-accordion[open]>summary .analysis-accordion__icon,.analysis-subaccordion[open]>summary .analysis-subaccordion__icon{transform:rotate(45deg);background:var(--accent)}
+.analysis-accordion__body{padding:0 28px 30px;border-top:1px solid var(--line);background:#fbfcfa}
+.analysis-subaccordion{border-bottom:1px solid var(--line);padding:0}
+.analysis-subaccordion:last-child{border-bottom:0}
+.analysis-subaccordion>summary{list-style:none;display:grid;grid-template-columns:1fr auto 34px;align-items:center;gap:15px;padding:22px 4px;cursor:pointer;font-weight:600;color:var(--ink)}
+.analysis-subaccordion>summary:hover{color:var(--accent)}
+.analysis-subaccordion__count{font-size:11px;color:var(--muted);font-weight:500}
+.analysis-subaccordion__icon{width:28px;height:28px;font-size:16px}
+.analysis-subaccordion .tbl-wrap{margin:0 0 25px;border-radius:14px;box-shadow:none}
+table.analiz thead th{background:var(--ink);color:rgba(255,255,255,.72);font-family:var(--font-sans);font-weight:600;letter-spacing:.06em}
+table.analiz tbody tr:nth-child(even){background:#f7f8f5}
+table.analiz tbody tr:hover{background:var(--accent-soft)}
+.pill-acc{font-family:var(--font-sans);font-weight:600;border-radius:999px}
+
+@media(max-width:680px){
+ .hero{min-height:650px}.display{font-size:3.25rem}.hero__media:after{background:rgba(9,37,31,.76)}
+ .analysis-accordion>summary{grid-template-columns:34px 1fr 34px;padding:21px 17px;gap:10px}
+ .analysis-accordion__count{display:none}.analysis-accordion__title{font-size:1.45rem}
+ .analysis-accordion__body{padding:0 13px 18px}.analysis-subaccordion>summary{grid-template-columns:1fr 28px}.analysis-subaccordion__count{display:none}
+}
