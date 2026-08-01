@@ -184,7 +184,7 @@
 
 .gubre-hero__progress{
   position:absolute;
-  left:clamp(24px,5vw,72px);
+  left:clamp(8px,2vw,28px);
   bottom:32px;
   display:flex;
   align-items:center;
