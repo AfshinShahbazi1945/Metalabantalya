@@ -388,3 +388,182 @@ table.analiz tbody tr:hover{background:var(--accent-soft)}
  .analysis-accordion__count{display:none}.analysis-accordion__title{font-size:1.45rem}
  .analysis-accordion__body{padding:0 13px 18px}.analysis-subaccordion>summary{grid-template-columns:1fr 28px}.analysis-subaccordion__count{display:none}
 }
+
+
+/* =========================================================
+   METALAB — WhatsApp hızlı iletişim
+   ========================================================= */
+
+.wa-float{
+  position:fixed;
+  right:clamp(16px,2.2vw,28px);
+  bottom:clamp(16px,2.2vw,28px);
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:10px;
+  text-decoration:none;
+  color:#fff;
+  isolation:isolate;
+}
+
+.wa-float__label{
+  max-width:0;
+  overflow:hidden;
+  white-space:nowrap;
+  opacity:0;
+  transform:translateX(8px);
+  padding:11px 0;
+  border-radius:999px;
+  background:rgba(14,24,22,.88);
+  box-shadow:0 12px 34px rgba(0,0,0,.20);
+  -webkit-backdrop-filter:blur(12px);
+  backdrop-filter:blur(12px);
+  font-family:var(--font-sans);
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.02em;
+  transition:
+    max-width .35s var(--ease),
+    opacity .30s ease,
+    transform .35s var(--ease),
+    padding .35s var(--ease);
+}
+
+.wa-float:hover .wa-float__label,
+.wa-float:focus-visible .wa-float__label{
+  max-width:160px;
+  opacity:1;
+  transform:none;
+  padding:11px 16px;
+}
+
+.wa-float__button{
+  position:relative;
+  width:58px;
+  height:58px;
+  flex:0 0 58px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,255,255,.28);
+  border-radius:50%;
+  background:linear-gradient(145deg,#2fd36b,#169447);
+  box-shadow:
+    0 15px 35px rgba(20,137,67,.30),
+    inset 0 1px 0 rgba(255,255,255,.30);
+  transition:
+    transform .30s var(--ease),
+    box-shadow .30s ease,
+    filter .30s ease;
+}
+
+.wa-float__button::before{
+  content:"";
+  position:absolute;
+  inset:-7px;
+  border:1px solid rgba(37,211,102,.32);
+  border-radius:50%;
+  opacity:0;
+  transform:scale(.8);
+  transition:opacity .30s ease,transform .30s ease;
+}
+
+.wa-float:hover .wa-float__button,
+.wa-float:focus-visible .wa-float__button{
+  transform:translateY(-3px) scale(1.04);
+  box-shadow:
+    0 20px 46px rgba(20,137,67,.38),
+    inset 0 1px 0 rgba(255,255,255,.36);
+  filter:saturate(1.08);
+}
+
+.wa-float:hover .wa-float__button::before,
+.wa-float:focus-visible .wa-float__button::before{
+  opacity:1;
+  transform:scale(1);
+}
+
+.wa-float__icon{
+  width:29px;
+  height:29px;
+  display:block;
+  fill:#fff;
+}
+
+.wa-float.is-ringing .wa-float__button{
+  animation:wa-ring 1.15s ease-in-out;
+}
+
+@keyframes wa-ring{
+  0%,100%{transform:rotate(0)}
+  12%{transform:rotate(-7deg)}
+  24%{transform:rotate(7deg)}
+  36%{transform:rotate(-5deg)}
+  48%{transform:rotate(5deg)}
+  60%{transform:rotate(-3deg)}
+  72%{transform:rotate(3deg)}
+}
+
+/* İlk ziyarette kısa süre görünen karşılama balonu */
+.wa-greeting{
+  position:fixed;
+  right:clamp(18px,2.4vw,30px);
+  bottom:clamp(86px,7.5vw,102px);
+  z-index:9998;
+  max-width:min(280px,calc(100vw - 36px));
+  padding:14px 17px;
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:16px 16px 4px 16px;
+  background:rgba(15,25,23,.92);
+  color:#fff;
+  box-shadow:0 18px 50px rgba(0,0,0,.24);
+  -webkit-backdrop-filter:blur(14px);
+  backdrop-filter:blur(14px);
+  font-family:var(--font-sans);
+  font-size:13px;
+  line-height:1.45;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(10px) scale(.98);
+  transition:
+    opacity .35s ease,
+    visibility .35s ease,
+    transform .35s var(--ease);
+}
+
+.wa-greeting.is-visible{
+  opacity:1;
+  visibility:visible;
+  transform:none;
+}
+
+@media(max-width:680px){
+  .wa-float__button{
+    width:54px;
+    height:54px;
+    flex-basis:54px;
+  }
+
+  .wa-float__icon{
+    width:27px;
+    height:27px;
+  }
+
+  .wa-float__label{
+    display:none;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .wa-float.is-ringing .wa-float__button{
+    animation:none;
+  }
+
+  .wa-float__label,
+  .wa-float__button,
+  .wa-greeting{
+    transition:none;
+  }
+}
+
