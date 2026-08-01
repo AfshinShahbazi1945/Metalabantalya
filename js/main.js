@@ -72,3 +72,67 @@
     }
   }
 })();
+
+
+/* 7. WhatsApp hızlı iletişim */
+(function () {
+  "use strict";
+
+  var button = document.querySelector(".wa-float");
+  var greeting = document.querySelector(".wa-greeting");
+
+  if (!button) return;
+
+  var ringTimer = null;
+
+  function ring() {
+    button.classList.remove("is-ringing");
+    void button.offsetWidth;
+    button.classList.add("is-ringing");
+
+    window.setTimeout(function () {
+      button.classList.remove("is-ringing");
+    }, 1300);
+  }
+
+  /* İlk hareket */
+  window.setTimeout(ring, 1800);
+
+  /* Daha sonra rahatsız etmeyen aralıklarla */
+  ringTimer = window.setInterval(ring, 11000);
+
+  button.addEventListener("mouseenter", function () {
+    button.classList.remove("is-ringing");
+  });
+
+  button.addEventListener("focus", function () {
+    button.classList.remove("is-ringing");
+  });
+
+  if (greeting) {
+    var key = "metalab-wa-greeting-seen";
+
+    try {
+      if (!window.sessionStorage.getItem(key)) {
+        window.setTimeout(function () {
+          greeting.classList.add("is-visible");
+
+          window.setTimeout(function () {
+            greeting.classList.remove("is-visible");
+          }, 3600);
+
+          window.sessionStorage.setItem(key, "1");
+        }, 2600);
+      }
+    } catch (error) {
+      window.setTimeout(function () {
+        greeting.classList.add("is-visible");
+
+        window.setTimeout(function () {
+          greeting.classList.remove("is-visible");
+        }, 3600);
+      }, 2600);
+    }
+  }
+})();
+
