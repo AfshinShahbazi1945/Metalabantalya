@@ -1,0 +1,408 @@
+/* ==========================================================
+   METALAB — Gübre sayfası üç slaytlı hero
+   Görsellerin doğal renkleri korunur; yeşil filtre kullanılmaz.
+   ========================================================== */
+
+.gubre-hero{
+  position:relative;
+  min-height:clamp(620px,76vh,800px);
+  overflow:hidden;
+  background:#091116;
+  color:#fff;
+  isolation:isolate;
+}
+
+.gubre-hero__slides,
+.gubre-slide{
+  position:absolute;
+  inset:0;
+}
+
+.gubre-slide{
+  z-index:1;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .85s var(--ease), visibility .85s;
+}
+
+.gubre-slide.is-active{
+  z-index:2;
+  opacity:1;
+  visibility:visible;
+}
+
+.gubre-slide__image{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  max-width:none;
+  object-fit:cover;
+  object-position:center;
+  transform:scale(1.035);
+  transition:transform 7s ease;
+}
+
+.gubre-slide.is-active .gubre-slide__image{
+  transform:scale(1);
+}
+
+/* Nötr, zarif geçiş: görsellerin özgün renklerine müdahale etmez */
+.gubre-slide__veil{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5,11,16,.88) 0%,
+      rgba(5,11,16,.72) 29%,
+      rgba(5,11,16,.32) 53%,
+      rgba(5,11,16,.06) 74%,
+      rgba(5,11,16,.02) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,.15) 0%,
+      transparent 45%,
+      rgba(0,0,0,.24) 100%
+    );
+}
+
+.gubre-slide--light .gubre-slide__veil{
+  background:
+    linear-gradient(
+      90deg,
+      rgba(8,15,18,.90) 0%,
+      rgba(8,15,18,.75) 31%,
+      rgba(8,15,18,.37) 55%,
+      rgba(8,15,18,.08) 77%,
+      rgba(8,15,18,.03) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,.12) 0%,
+      transparent 48%,
+      rgba(0,0,0,.20) 100%
+    );
+}
+
+.gubre-slide__inner{
+  position:relative;
+  z-index:3;
+  min-height:clamp(620px,76vh,800px);
+  display:flex;
+  align-items:center;
+  padding-top:clamp(44px,6vw,82px);
+  padding-bottom:clamp(90px,10vw,128px);
+}
+
+.gubre-slide__content{
+  width:min(650px,58vw);
+  padding-right:24px;
+}
+
+.gubre-slide__eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:22px;
+  font-family:var(--font-sans);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.19em;
+  text-transform:uppercase;
+  color:#e8b76d;
+}
+
+.gubre-slide__eyebrow::before{
+  content:"";
+  width:30px;
+  height:1px;
+  background:currentColor;
+  opacity:.9;
+}
+
+.gubre-slide__title{
+  max-width:13ch;
+  margin:0;
+  font-family:var(--font-serif);
+  font-size:clamp(3rem,5.4vw,5.35rem);
+  font-weight:400;
+  line-height:.93;
+  letter-spacing:-.035em;
+  text-wrap:balance;
+  color:#fff;
+}
+
+.gubre-slide__title--compact{
+  max-width:15ch;
+  font-size:clamp(2.65rem,4.55vw,4.55rem);
+  line-height:.96;
+}
+
+.gubre-slide__title em{
+  font-style:italic;
+  color:#efba6c;
+}
+
+.gubre-slide__desc{
+  max-width:56ch;
+  margin-top:25px;
+  font-family:var(--font-sans);
+  font-size:clamp(.98rem,1.22vw,1.10rem);
+  line-height:1.72;
+  color:rgba(255,255,255,.74);
+}
+
+.gubre-slide__actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:31px;
+}
+
+.gubre-slide__actions .btn{
+  padding:13px 21px;
+  font-size:13px;
+}
+
+.gubre-hero__ui{
+  position:absolute;
+  z-index:8;
+  left:50%;
+  bottom:32px;
+  transform:translateX(-50%);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  width:100%;
+  pointer-events:none;
+}
+
+.gubre-hero__progress,
+.gubre-hero__arrows{
+  display:flex;
+  align-items:center;
+  pointer-events:auto;
+}
+
+.gubre-hero__progress{
+  gap:8px;
+}
+
+.gubre-hero__dot{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:54px;
+  height:34px;
+  border:0;
+  background:transparent;
+  color:rgba(255,255,255,.48);
+  font-family:var(--font-sans);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.13em;
+}
+
+.gubre-hero__dot::after{
+  content:"";
+  position:absolute;
+  left:7px;
+  right:7px;
+  bottom:1px;
+  height:1px;
+  background:rgba(255,255,255,.26);
+}
+
+.gubre-hero__dot::before{
+  content:"";
+  position:absolute;
+  left:7px;
+  bottom:1px;
+  width:0;
+  height:2px;
+  background:#e8b76d;
+  transition:width .35s var(--ease);
+}
+
+.gubre-hero__dot.is-active{
+  color:#fff;
+}
+
+.gubre-hero__dot.is-active::before{
+  width:40px;
+  animation:gubre-progress 7s linear forwards;
+}
+
+.gubre-hero.is-paused .gubre-hero__dot.is-active::before{
+  animation-play-state:paused;
+}
+
+.gubre-hero__arrows{
+  gap:9px;
+}
+
+.gubre-hero__arrow{
+  width:46px;
+  height:46px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,255,255,.32);
+  border-radius:50%;
+  background:rgba(9,16,20,.16);
+  color:#fff;
+  font-size:17px;
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  transition:background .3s, border-color .3s, transform .3s var(--ease);
+}
+
+.gubre-hero__arrow:hover{
+  background:rgba(255,255,255,.12);
+  border-color:rgba(255,255,255,.72);
+  transform:translateY(-2px);
+}
+
+.gubre-hero__counter{
+  position:absolute;
+  z-index:8;
+  right:clamp(24px,4vw,65px);
+  top:50%;
+  transform:translateY(-50%) rotate(90deg);
+  transform-origin:center;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:rgba(255,255,255,.55);
+  font-family:var(--font-sans);
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.16em;
+}
+
+.gubre-hero__current{
+  color:#fff;
+}
+
+.gubre-hero__counter-line{
+  width:34px;
+  height:1px;
+  background:rgba(255,255,255,.30);
+}
+
+@keyframes gubre-progress{
+  from{ width:0; }
+  to{ width:40px; }
+}
+
+@media(max-width:900px){
+  .gubre-hero,
+  .gubre-slide__inner{
+    min-height:670px;
+  }
+
+  .gubre-slide__content{
+    width:min(660px,76vw);
+  }
+
+  .gubre-hero__counter{
+    display:none;
+  }
+}
+
+@media(max-width:680px){
+  .gubre-hero,
+  .gubre-slide__inner{
+    min-height:700px;
+  }
+
+  .gubre-slide__image{
+    object-position:62% center;
+  }
+
+  .gubre-slide__veil,
+  .gubre-slide--light .gubre-slide__veil{
+    background:
+      linear-gradient(
+        90deg,
+        rgba(5,11,16,.90) 0%,
+        rgba(5,11,16,.72) 58%,
+        rgba(5,11,16,.35) 100%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(0,0,0,.13) 0%,
+        transparent 38%,
+        rgba(0,0,0,.48) 100%
+      );
+  }
+
+  .gubre-slide__inner{
+    align-items:flex-end;
+    padding-top:88px;
+    padding-bottom:122px;
+  }
+
+  .gubre-slide__content{
+    width:100%;
+    padding-right:0;
+  }
+
+  .gubre-slide__title{
+    max-width:13ch;
+    font-size:clamp(2.65rem,12vw,4rem);
+  }
+
+  .gubre-slide__title--compact{
+    max-width:14ch;
+    font-size:clamp(2.25rem,10.3vw,3.5rem);
+  }
+
+  .gubre-slide__desc{
+    max-width:45ch;
+    font-size:.96rem;
+    line-height:1.62;
+  }
+
+  .gubre-slide__actions{
+    margin-top:24px;
+  }
+
+  .gubre-slide__actions .btn{
+    padding:12px 17px;
+    font-size:12px;
+  }
+
+  .gubre-hero__ui{
+    bottom:24px;
+  }
+
+  .gubre-hero__dot{
+    width:42px;
+  }
+
+  .gubre-hero__dot.is-active::before{
+    width:28px;
+  }
+
+  .gubre-hero__arrow{
+    width:41px;
+    height:41px;
+  }
+
+  @keyframes gubre-progress{
+    from{ width:0; }
+    to{ width:28px; }
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .gubre-slide,
+  .gubre-slide__image,
+  .gubre-hero__dot::before{
+    transition:none;
+    animation:none!important;
+  }
+}
