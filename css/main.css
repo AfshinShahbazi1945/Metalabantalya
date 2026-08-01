@@ -122,6 +122,14 @@ p.lead{ font-size:clamp(1.05rem,1.5vw,1.28rem); color:var(--muted); max-width:56
 }
 .nav__in{ display:flex; align-items:center; justify-content:space-between; height:66px; }
 .brand{ display:flex; align-items:baseline; gap:12px; }
+.brand__logo{
+  display:block;
+  width:150px;
+  height:46px;
+  object-fit:contain;
+  object-position:left center;
+}
+
 .brand__mark{ font-family:var(--font-serif); font-size:23px; letter-spacing:.02em; color:var(--ink); }
 .brand__sub{
   font-family:var(--font-mono); font-size:10px; letter-spacing:.18em; text-transform:uppercase;
