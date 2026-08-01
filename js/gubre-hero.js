@@ -10,7 +10,7 @@
 
   if (slides.length < 2) return;
 
-  const intervalMs = 7000;
+  const intervalMs = 5000;
   let current = 0;
   let timer = null;
   let paused = false;
