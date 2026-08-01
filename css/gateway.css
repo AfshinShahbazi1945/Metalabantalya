@@ -176,3 +176,14 @@
   .gate__bg video{ display:none; }
   .choice,.choice__arrow{ transition:none; }
 }
+
+.gate__top .brand__logo{
+    height:88px;
+    width:auto;
+}
+
+@media (max-width:768px){
+    .gate__top .brand__logo{
+        height:64px;
+    }
+}
