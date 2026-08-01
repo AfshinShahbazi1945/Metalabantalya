@@ -9,6 +9,147 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/main.css">
 
+
+<style>
+/* =========================================================
+   HAKKIMIZDA — Açılır metinler ve dengeli içerik yerleşimi
+   Bu CSS yalnızca bu sayfada çalışır.
+   ========================================================= */
+
+.about-intro__more{
+  display:grid;
+  grid-template-rows:0fr;
+  opacity:0;
+  margin-top:0;
+  transition:
+    grid-template-rows .55s var(--ease),
+    opacity .40s ease,
+    margin-top .40s ease;
+}
+
+.about-intro__more-inner{
+  overflow:hidden;
+}
+
+.about-intro__more.is-open{
+  grid-template-rows:1fr;
+  opacity:1;
+  margin-top:18px;
+}
+
+.about-toggle,
+.value__toggle{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  margin-top:10px;
+  padding:7px 0 5px;
+  border:0;
+  border-bottom:1px solid currentColor;
+  background:transparent;
+  color:var(--accent);
+  font-family:var(--font-sans);
+  font-size:13px;
+  font-weight:600;
+  cursor:pointer;
+  transition:gap .30s var(--ease), opacity .30s ease;
+}
+
+.about-toggle:hover,
+.value__toggle:hover{
+  gap:13px;
+  opacity:.82;
+}
+
+.about-toggle__arrow,
+.value__toggle-arrow{
+  display:inline-block;
+  transition:transform .35s var(--ease);
+}
+
+.about-toggle[aria-expanded="true"] .about-toggle__arrow,
+.value__toggle[aria-expanded="true"] .value__toggle-arrow{
+  transform:rotate(180deg);
+}
+
+/* Ana metin ve görsel başlangıçta üstten hizalı kalır */
+.about-split{
+  align-items:start;
+}
+
+.about-split .split__img{
+  position:sticky;
+  top:96px;
+}
+
+/* Vizyon, misyon ve değer kartları */
+.about-values{
+  align-items:start;
+}
+
+.about-value{
+  align-self:start;
+}
+
+.about-value__text{
+  position:relative;
+  max-height:154px;
+  overflow:hidden;
+  transition:max-height .55s var(--ease);
+}
+
+.about-value__text::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:62px;
+  background:linear-gradient(
+    to bottom,
+    rgba(255,255,255,0),
+    rgba(255,255,255,1)
+  );
+  pointer-events:none;
+  transition:opacity .30s ease;
+}
+
+.about-value__text.is-open{
+  max-height:900px;
+}
+
+.about-value__text.is-open::after{
+  opacity:0;
+}
+
+.about-value__text p{
+  color:var(--muted);
+  font-size:14.5px;
+  line-height:1.62;
+}
+
+/* Kısa metinlerde gereksiz Devamını Oku düğmesini gizle */
+.about-value.is-short .value__toggle{
+  display:none;
+}
+
+@media(max-width:900px){
+  .about-split .split__img{
+    position:relative;
+    top:auto;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .about-intro__more,
+  .about-toggle__arrow,
+  .value__toggle-arrow,
+  .about-value__text{
+    transition:none;
+  }
+}
+</style>
+
 </head><body>
 <header class="nav">
   <div class="wrap nav__in">
@@ -39,12 +180,90 @@
 </section>
 
 <section class="section">
-  <div class="wrap split">
+  <div class="wrap split about-split">
     <div class="reveal">
       <span class="eyebrow">Biz Kimiz</span>
-      <h2 class="title" style="margin:20px 0 26px">Bilimin Gücüyle<br>Tarıma Değer Katıyoruz</h2>
-      <p class='lead' style='margin-bottom:18px'>Metalab Test ve Gözetim Hizmetleri, tarım sektöründe güvenilir, tarafsız ve bilimsel analiz hizmetleri sunma vizyonuyla 2014 yılında faaliyetlerine başlamıştır. Kuruluşumuzdan bu yana, bilimsel doğruluk, teknik yeterlilik ve kalite ilkelerinden ödün vermeden; tarımsal üreticilere, kamu kurumlarına, gübre üreticilerine, ithalatçı ve ihracatçı firmalara analiz ve teknik değerlendirme hizmetleri sunmaktayız.</p><p class='lead' style='margin-bottom:18px'>İlk yıllarımızda toprak, su ve bitki analizleri alanında edindiğimiz bilgi birikimi ve tecrübemizi, tarım sektörünün gelişen ihtiyaçları doğrultusunda sürekli geliştirerek 2025 yılında Antalya’da Metalab Gübre Analiz Laboratuvarını faaliyete geçirdik. Böylece bitki besleme ve gübre sektörüne yönelik ileri analiz hizmetlerinde uzmanlaşan, modern teknolojilerle donatılmış bir laboratuvar altyapısı oluşturduk.</p><p class='lead' style='margin-bottom:18px'>2026 yılında laboratuvarımız, TS EN ISO/IEC 17025:2017 “Deney ve Kalibrasyon Laboratuvarlarının Yeterliliği İçin Genel Şartlar” standardı kapsamında Türk Akreditasyon Kurumu (TÜRKAK) tarafından akredite edilmiştir. Bu akreditasyon, laboratuvarımızın teknik yeterliliğini, tarafsızlığını ve analiz sonuçlarının uluslararası düzeyde kabul gören kalite standartlarına uygunluğunu tescillemektedir.</p><p class='lead' style='margin-bottom:18px'>Bugün Metalab, yalnızca analiz yapan bir laboratuvar değil; bilimsel verileri güvenilir bilgiye dönüştüren, karar verme süreçlerine katkı sağlayan ve tarımsal üretimin her aşamasında çözüm ortaklığı sunan güçlü bir teknik merkezdir.</p><p class='lead' style='margin-bottom:18px'>Yüksek teknolojili analiz cihazlarımız, güçlü kalite yönetim sistemimiz ve alanında uzman personelimiz sayesinde müşterilerimize hızlı, doğru, izlenebilir ve güvenilir sonuçlar sunuyor; tarımsal üretimde kalite, verimlilik ve sürdürülebilirliğin artırılmasına katkı sağlıyoruz.</p><p class='lead' style='margin-bottom:18px'>Metalab olarak amacımız yalnızca analiz raporu düzenlemek değil; bilimsel veriler ışığında üreticilere, sanayicilere ve kamu kurumlarına güven veren teknik çözümler sunarak ülkemizin tarımsal üretimine değer katmaktır.</p>
+
+      <h2 class="title" style="margin:20px 0 26px">
+        Bilimin Gücüyle<br>
+        Tarıma Değer Katıyoruz
+      </h2>
+
+      <div class="about-intro">
+        <p class="lead" style="margin-bottom:18px">
+          Metalab Test ve Gözetim Hizmetleri, tarım sektöründe güvenilir,
+          tarafsız ve bilimsel analiz hizmetleri sunma vizyonuyla 2014 yılında
+          faaliyetlerine başlamıştır. Kuruluşumuzdan bu yana bilimsel doğruluk,
+          teknik yeterlilik ve kalite ilkelerinden ödün vermeden; tarımsal
+          üreticilere, kamu kurumlarına, gübre üreticilerine, ithalatçı ve
+          ihracatçı firmalara analiz ve teknik değerlendirme hizmetleri sunmaktayız.
+        </p>
+
+        <div class="about-intro__more" id="about-intro-more">
+          <div class="about-intro__more-inner">
+            <p class="lead" style="margin-bottom:18px">
+              İlk yıllarımızda toprak, su ve bitki analizleri alanında edindiğimiz
+              bilgi birikimi ve tecrübemizi, tarım sektörünün gelişen ihtiyaçları
+              doğrultusunda sürekli geliştirerek 2025 yılında Antalya’da Metalab
+              Gübre Analiz Laboratuvarını faaliyete geçirdik. Böylece bitki besleme
+              ve gübre sektörüne yönelik ileri analiz hizmetlerinde uzmanlaşan,
+              modern teknolojilerle donatılmış bir laboratuvar altyapısı oluşturduk.
+            </p>
+
+            <p class="lead" style="margin-bottom:18px">
+              2026 yılında laboratuvarımız, TS EN ISO/IEC 17025:2017
+              “Deney ve Kalibrasyon Laboratuvarlarının Yeterliliği İçin Genel
+              Şartlar” standardı kapsamında Türk Akreditasyon Kurumu (TÜRKAK)
+              tarafından akredite edilmiştir. Bu akreditasyon, laboratuvarımızın
+              teknik yeterliliğini, tarafsızlığını ve analiz sonuçlarının
+              uluslararası düzeyde kabul gören kalite standartlarına uygunluğunu
+              tescillemektedir.
+            </p>
+
+            <p class="lead" style="margin-bottom:18px">
+              Bugün Metalab, yalnızca analiz yapan bir laboratuvar değil;
+              bilimsel verileri güvenilir bilgiye dönüştüren, karar verme
+              süreçlerine katkı sağlayan ve tarımsal üretimin her aşamasında
+              çözüm ortaklığı sunan güçlü bir teknik merkezdir.
+            </p>
+
+            <p class="lead" style="margin-bottom:18px">
+              Laboratuvarımızda gübre içerik analizleri; organik, organomineral
+              ve kimyevi gübre analizleri; sıvı gübrelerde bitki koruma ürünü
+              etken madde analizleri; gübrelerde bitki büyüme düzenleyicileri
+              analizleri; fiziksel ve kimyasal kalite kontrol analizleri;
+              mevzuata uygunluk ve doğrulama analizleri ile araştırma ve
+              geliştirme analizleri gerçekleştirilmektedir.
+            </p>
+
+            <p class="lead" style="margin-bottom:18px">
+              Yüksek teknolojili analiz cihazlarımız, güçlü kalite yönetim
+              sistemimiz ve alanında uzman personelimiz sayesinde müşterilerimize
+              hızlı, doğru, izlenebilir ve güvenilir sonuçlar sunuyor; tarımsal
+              üretimde kalite, verimlilik ve sürdürülebilirliğin artırılmasına
+              katkı sağlıyoruz.
+            </p>
+
+            <p class="lead" style="margin-bottom:18px">
+              Metalab olarak amacımız yalnızca analiz raporu düzenlemek değil;
+              bilimsel veriler ışığında üreticilere, sanayicilere ve kamu
+              kurumlarına güven veren teknik çözümler sunarak ülkemizin tarımsal
+              üretimine değer katmaktır.
+            </p>
+          </div>
+        </div>
+
+        <button
+          class="about-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="about-intro-more">
+          <span class="about-toggle__text">Devamını Oku</span>
+          <span class="about-toggle__arrow" aria-hidden="true">↓</span>
+        </button>
+      </div>
     </div>
+
     <div class="split__img reveal">
       <img src="../images/about_img.jpg" alt="Gübre Analiz laboratuvarı">
       <span class="cap">TÜRKAK · AB-2181-T</span>
@@ -77,7 +296,76 @@
       <span class="eyebrow">Kurumsal Yaklaşımımız</span>
       <h2 class="title" style="margin-top:20px">Vizyonumuz, misyonumuz ve değerlerimiz</h2>
     </div>
-    <div class="values"><div class="value reveal"><div class="value__n">01</div><h3>Vizyonumuz</h3><p>Tarımsal analiz ve test hizmetlerinde bilimsel doğruluğu, tarafsızlığı ve teknolojik yenilikleri esas alan; ulusal ve uluslararası düzeyde güvenilirliği ile referans gösterilen lider bir analiz laboratuvarı olmak. Sürekli gelişen teknolojiyi takip eden, araştırma ve inovasyonu destekleyen, kalite kültürünü tüm süreçlerine yansıtan ve sürdürülebilir tarımın gelişimine katkı sağlayan öncü bir kuruluş olarak geleceği şekillendirmeyi hedefliyoruz.</p></div><div class="value reveal"><div class="value__n">02</div><h3>Misyonumuz</h3><p>Bilimsel yöntemler, uluslararası standartlar ve akredite kalite anlayışı çerçevesinde; müşterilerimize hızlı, doğru, güvenilir ve tarafsız analiz hizmetleri sunmak temel misyonumuzdur. Üreticilerin, sanayicilerin ve kamu kurumlarının doğru kararlar almasına katkı sağlayan güvenilir analiz sonuçları üretirken; çevrenin korunmasını, sürdürülebilir tarımı, gıda güvenliğini ve kaliteli üretimi destekleyen çözümler geliştirmeyi amaçlıyoruz.</p></div><div class="value reveal"><div class="value__n">03</div><h3>Temel Değerlerimiz</h3><p>Tarafsızlık ve bağımsızlık; bilimsel doğruluk; güvenilirlik; kalite odaklı hizmet; gizlilik ve etik ilkeler; sürekli gelişim ve yenilikçilik; müşteri memnuniyeti; çevreye ve sürdürülebilir tarıma duyarlılık.</p></div></div>
+    <div class="values about-values">
+
+  <div class="value reveal about-value">
+    <div class="value__n">01</div>
+    <h3>Vizyonumuz</h3>
+
+    <div class="about-value__text">
+      <p>
+        Tarımsal analiz ve test hizmetlerinde bilimsel doğruluğu,
+        tarafsızlığı ve teknolojik yenilikleri esas alan; ulusal ve
+        uluslararası düzeyde güvenilirliği ile referans gösterilen lider
+        bir analiz laboratuvarı olmak. Sürekli gelişen teknolojiyi takip
+        eden, araştırma ve inovasyonu destekleyen, kalite kültürünü tüm
+        süreçlerine yansıtan ve sürdürülebilir tarımın gelişimine katkı
+        sağlayan öncü bir kuruluş olarak geleceği şekillendirmeyi
+        hedefliyoruz.
+      </p>
+    </div>
+
+    <button class="value__toggle" type="button" aria-expanded="false">
+      <span class="value__toggle-text">Devamını Oku</span>
+      <span class="value__toggle-arrow" aria-hidden="true">↓</span>
+    </button>
+  </div>
+
+  <div class="value reveal about-value">
+    <div class="value__n">02</div>
+    <h3>Misyonumuz</h3>
+
+    <div class="about-value__text">
+      <p>
+        Bilimsel yöntemler, uluslararası standartlar ve akredite kalite
+        anlayışı çerçevesinde müşterilerimize hızlı, doğru, güvenilir ve
+        tarafsız analiz hizmetleri sunmak temel misyonumuzdur. Üreticilerin,
+        sanayicilerin ve kamu kurumlarının doğru kararlar almasına katkı
+        sağlayan güvenilir analiz sonuçları üretirken; çevrenin korunmasını,
+        sürdürülebilir tarımı, gıda güvenliğini ve kaliteli üretimi destekleyen
+        çözümler geliştirmeyi amaçlıyoruz. Teknolojik altyapımıza sürekli
+        yatırım yaparak, çalışanlarımızın bilgi ve yetkinliklerini geliştirerek
+        ve kalite yönetim sistemimizi sürekli iyileştirerek ülkemizin tarım
+        sektörüne uzun yıllar değer katmayı sürdüreceğiz.
+      </p>
+    </div>
+
+    <button class="value__toggle" type="button" aria-expanded="false">
+      <span class="value__toggle-text">Devamını Oku</span>
+      <span class="value__toggle-arrow" aria-hidden="true">↓</span>
+    </button>
+  </div>
+
+  <div class="value reveal about-value">
+    <div class="value__n">03</div>
+    <h3>Temel Değerlerimiz</h3>
+
+    <div class="about-value__text">
+      <p>
+        Tarafsızlık ve bağımsızlık; bilimsel doğruluk; güvenilirlik;
+        kalite odaklı hizmet; gizlilik ve etik ilkeler; sürekli gelişim
+        ve yenilikçilik; müşteri memnuniyeti; çevreye ve sürdürülebilir
+        tarıma duyarlılık.
+      </p>
+    </div>
+
+    <button class="value__toggle" type="button" aria-expanded="false">
+      <span class="value__toggle-text">Devamını Oku</span>
+      <span class="value__toggle-arrow" aria-hidden="true">↓</span>
+    </button>
+  </div>
+
+</div>
   </div>
 </section>
 
@@ -117,6 +405,68 @@
     </div>
   </div>
 </footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var aboutButton = document.querySelector(".about-toggle");
+
+  if (aboutButton) {
+    aboutButton.addEventListener("click", function () {
+      var target = document.getElementById(
+        aboutButton.getAttribute("aria-controls")
+      );
+
+      if (!target) return;
+
+      var isOpen =
+        aboutButton.getAttribute("aria-expanded") === "true";
+
+      aboutButton.setAttribute("aria-expanded", String(!isOpen));
+      target.classList.toggle("is-open", !isOpen);
+
+      var label =
+        aboutButton.querySelector(".about-toggle__text");
+
+      if (label) {
+        label.textContent =
+          isOpen ? "Devamını Oku" : "Daha Az Göster";
+      }
+    });
+  }
+
+  document.querySelectorAll(".about-value").forEach(function (card) {
+    var textArea = card.querySelector(".about-value__text");
+    var button = card.querySelector(".value__toggle");
+
+    if (!textArea || !button) return;
+
+    if (textArea.scrollHeight <= textArea.clientHeight + 6) {
+      card.classList.add("is-short");
+      textArea.classList.add("is-open");
+      return;
+    }
+
+    button.addEventListener("click", function () {
+      var isOpen =
+        button.getAttribute("aria-expanded") === "true";
+
+      button.setAttribute("aria-expanded", String(!isOpen));
+      textArea.classList.toggle("is-open", !isOpen);
+
+      var label =
+        button.querySelector(".value__toggle-text");
+
+      if (label) {
+        label.textContent =
+          isOpen ? "Devamını Oku" : "Daha Az Göster";
+      }
+    });
+  });
+})();
+</script>
+
 <script src="../js/main.js"></script>
 </body>
 </html>
