@@ -67,3 +67,69 @@
     }
   }
 })();
+
+/* 6. Hakkımızda — uzun metinleri aç/kapat */
+(function () {
+  "use strict";
+
+  var aboutButton = document.querySelector(".about-toggle");
+
+  if (aboutButton) {
+    aboutButton.addEventListener("click", function () {
+      var targetId = aboutButton.getAttribute("aria-controls");
+      var target = document.getElementById(targetId);
+
+      if (!target) return;
+
+      var isOpen =
+        aboutButton.getAttribute("aria-expanded") === "true";
+
+      aboutButton.setAttribute(
+        "aria-expanded",
+        String(!isOpen)
+      );
+
+      target.classList.toggle("is-open", !isOpen);
+
+      var text =
+        aboutButton.querySelector(".about-toggle__text");
+
+      if (text) {
+        text.textContent =
+          isOpen ? "Devamını Oku" : "Daha Az Göster";
+      }
+    });
+  }
+
+  document
+    .querySelectorAll(".value__toggle")
+    .forEach(function (button) {
+
+      button.addEventListener("click", function () {
+        var card = button.closest(".value");
+        var textArea = card
+          ? card.querySelector(".value__text")
+          : null;
+
+        if (!textArea) return;
+
+        var isOpen =
+          button.getAttribute("aria-expanded") === "true";
+
+        button.setAttribute(
+          "aria-expanded",
+          String(!isOpen)
+        );
+
+        textArea.classList.toggle("is-open", !isOpen);
+
+        var label =
+          button.querySelector(".value__toggle-text");
+
+        if (label) {
+          label.textContent =
+            isOpen ? "Devamını Oku" : "Daha Az Göster";
+        }
+      });
+    });
+})();
