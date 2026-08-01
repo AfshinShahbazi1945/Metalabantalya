@@ -1,55 +1,76 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>METALAB Antalya — Test Hizmetleri Laboratuvarı</title>
-<meta name="description" content="METALAB Antalya Test Hizmetleri San. ve Tic. Ltd. Şti. — TÜRKAK akrediteli gübre ve tarımsal analiz laboratuvarı, Antalya.">
-<link rel="icon" href="images/new.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/gateway.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>METALAB Antalya — Test Hizmetleri Laboratuvarı</title>
+  <meta name="description"
+        content="METALAB Antalya Test Hizmetleri San. ve Tic. Ltd. Şti. — TÜRKAK akrediteli gübre ve tarımsal analiz laboratuvarı, Antalya.">
+
+  <link rel="icon" href="images/new.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/gateway.css">
 </head>
+
 <body>
-<main class="gate">
-  <div class="gate__bg" aria-hidden="true">
-    <video autoplay muted loop playsinline poster="images/hero-poster.jpg">
-      <source src="images/ilkSayfa.mp4" type="video/mp4">
-    </video>
-  </div>
+  <main class="gate">
 
-  <header class="gate__top">
-    <a class="brand" href="index.html" aria-label="METALAB Antalya ana sayfa">
-        <img src="images/metalab-logo.png"
-             alt="METALAB Antalya"
-             class="brand__logo">
-    </a>
-    <div class="gate__acc">TÜRKAK <span>AB-2181-T</span></div>
-  </header>
+    <div class="gate__bg" aria-hidden="true">
+      <video autoplay muted loop playsinline poster="images/hero-poster.jpg">
+        <source src="images/ilkSayfa.mp4" type="video/mp4">
+      </video>
+    </div>
 
-  <section class="gate__choice" aria-label="Laboratuvar seçimi">
-    <a class="choice choice--gubre" href="gubre/index.html">
-      <span class="choice__no">01</span>
-      <span class="choice__title">Gübre</span>
-      <span class="choice__sub">Analiz Laboratuvarı</span>
-      <span class="choice__arrow" aria-hidden="true">↗</span>
-    </a>
+    <header class="gate__top">
 
-    <a class="choice choice--tarim" href="tarim/index.html">
-      <span class="choice__no">02</span>
-      <span class="choice__title">Tarımsal</span>
-      <span class="choice__sub">Analiz Laboratuvarı</span>
-      <span class="choice__arrow" aria-hidden="true">↗</span>
-    </a>
-  </section>
+      <a class="brand" href="index.html" aria-label="METALAB Antalya ana sayfa">
+        <img
+          src="images/metalab-logo.png"
+          alt="METALAB Antalya"
+          class="brand__logo">
+      </a>
 
-  <footer class="gate__foot">
-    <span>© <span data-year>2026</span> METALAB Antalya</span>
-    <span>TS EN ISO/IEC 17025:2017</span>
-  </footer>
-</main>
-<script src="js/main.js"></script>
+      <div class="gate__acc" aria-label="TÜRKAK akreditasyonu">
+        <img
+          src="images/turkak-logo-A.png"
+          alt="TÜRKAK Deney TS EN ISO IEC 17025 AB-2181-T"
+          class="gate__acc-logo">
+      </div>
+
+    </header>
+
+    <section class="gate__choice" aria-label="Laboratuvar seçimi">
+
+      <a class="choice choice--gubre" href="gubre/index.html">
+        <span class="choice__no">01</span>
+        <span class="choice__title">Gübre</span>
+        <span class="choice__sub">Analiz Laboratuvarı</span>
+        <span class="choice__arrow" aria-hidden="true">↗</span>
+      </a>
+
+      <a class="choice choice--tarim" href="tarim/index.html">
+        <span class="choice__no">02</span>
+        <span class="choice__title">Tarımsal</span>
+        <span class="choice__sub">Analiz Laboratuvarı</span>
+        <span class="choice__arrow" aria-hidden="true">↗</span>
+      </a>
+
+    </section>
+
+    <footer class="gate__foot">
+      <span>© <span data-year>2026</span> METALAB Antalya</span>
+      <span>TS EN ISO/IEC 17025:2017</span>
+    </footer>
+
+  </main>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
