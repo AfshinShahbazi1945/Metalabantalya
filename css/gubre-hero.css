@@ -435,3 +435,133 @@
     animation:none!important;
   }
 }
+
+/* ==========================================================
+   4. SLAYT — Yetki ve Akreditasyon
+   ========================================================== */
+.gubre-slide--authority{
+  background:
+    radial-gradient(circle at 18% 20%,rgba(232,183,109,.10),transparent 30%),
+    radial-gradient(circle at 82% 78%,rgba(183,35,35,.08),transparent 28%),
+    linear-gradient(135deg,#081116 0%,#0b171a 45%,#10231f 100%);
+}
+.gubre-slide__authority-bg{position:absolute;inset:0;overflow:hidden}
+.gubre-slide__authority-bg::before,
+.gubre-slide__authority-bg::after{
+  content:"";position:absolute;border:1px solid rgba(255,255,255,.035);border-radius:50%
+}
+.gubre-slide__authority-bg::before{width:520px;height:520px;left:-180px;top:-210px}
+.gubre-slide__authority-bg::after{width:420px;height:420px;right:-150px;bottom:-190px}
+.gubre-slide__inner--authority{
+  align-items:center;
+  padding-top:clamp(38px,4.2vw,62px);
+  padding-bottom:clamp(84px,8vw,112px)
+}
+.gubre-authority{
+  width:100%;
+  display:grid;
+  grid-template-columns:minmax(250px,.72fr) minmax(680px,1.55fr);
+  align-items:center;
+  gap:clamp(28px,4vw,62px)
+}
+.gubre-authority__intro{max-width:420px}
+.gubre-authority__title{
+  margin:0;font-family:var(--font-serif);
+  font-size:clamp(2.45rem,4vw,4.15rem);
+  line-height:.96;font-weight:400;letter-spacing:-.035em;color:#fff
+}
+.gubre-authority__title em{
+  display:block;margin-top:8px;font-style:italic;color:#efba6c
+}
+.gubre-authority__lead{
+  margin-top:24px;max-width:44ch;font-family:var(--font-sans);
+  font-size:clamp(.94rem,1.1vw,1.04rem);line-height:1.7;color:rgba(255,255,255,.66)
+}
+.gubre-authority__cards{display:grid;gap:14px}
+.gubre-authority-card{
+  position:relative;overflow:hidden;
+  display:grid;grid-template-columns:minmax(0,1fr) 150px;
+  align-items:center;gap:28px;min-height:230px;
+  padding:clamp(24px,2.4vw,34px);
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:22px;background:rgba(255,255,255,.045);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  box-shadow:0 18px 48px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.055)
+}
+.gubre-authority-card::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:3px
+}
+.gubre-authority-card--turkak::before{background:linear-gradient(180deg,#efba6c,#c78229)}
+.gubre-authority-card--ministry::before{background:linear-gradient(180deg,#ef4646,#b72020)}
+.gubre-authority-card__eyebrow{
+  display:inline-block;margin-bottom:11px;font-family:var(--font-sans);
+  font-size:10px;font-weight:700;letter-spacing:.19em;text-transform:uppercase;color:#efba6c
+}
+.gubre-authority-card--ministry .gubre-authority-card__eyebrow{color:#f06b6b}
+.gubre-authority-card h3{
+  margin:0;font-family:var(--font-serif);
+  font-size:clamp(1.45rem,2.1vw,2.15rem);
+  font-weight:400;line-height:1.08;color:#fff
+}
+.gubre-authority-card p{
+  margin-top:13px;max-width:68ch;font-family:var(--font-sans);
+  font-size:clamp(.84rem,.95vw,.95rem);line-height:1.62;color:rgba(255,255,255,.66)
+}
+.gubre-authority-card__logo{
+  display:grid;place-items:center;align-self:stretch
+}
+.gubre-authority-card__logo img{
+  display:block;width:auto;max-width:132px;max-height:150px;object-fit:contain
+}
+.gubre-authority-card--ministry .gubre-authority-card__logo img{
+  max-width:128px;max-height:142px
+}
+.gubre-authority-card__facts{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:12px;margin-top:18px;padding-top:17px;border-top:1px solid rgba(255,255,255,.10)
+}
+.gubre-authority-card__facts span{
+  display:block;margin-bottom:5px;font-family:var(--font-sans);
+  font-size:8px;font-weight:600;line-height:1.25;letter-spacing:.12em;
+  text-transform:uppercase;color:rgba(255,255,255,.42)
+}
+.gubre-authority-card__facts strong{
+  display:block;font-family:var(--font-serif);
+  font-size:clamp(.9rem,1.15vw,1.15rem);font-weight:400;line-height:1.1;color:#efba6c
+}
+@media(max-width:1150px){
+  .gubre-authority{grid-template-columns:1fr;gap:24px}
+  .gubre-authority__intro{max-width:780px}
+  .gubre-authority__title{font-size:clamp(2.2rem,4vw,3.25rem)}
+  .gubre-authority__lead{max-width:70ch;margin-top:16px}
+  .gubre-authority-card{min-height:0}
+}
+@media(max-width:760px){
+  .gubre-slide__inner--authority{align-items:flex-start;padding-top:74px;padding-bottom:110px}
+  .gubre-authority{gap:18px}
+  .gubre-authority__intro{display:none}
+  .gubre-authority__cards{gap:12px}
+  .gubre-authority-card{
+    grid-template-columns:1fr 92px;gap:16px;
+    padding:20px 18px 20px 20px;border-radius:16px
+  }
+  .gubre-authority-card h3{font-size:1.35rem}
+  .gubre-authority-card p{margin-top:10px;font-size:.82rem;line-height:1.52}
+  .gubre-authority-card__logo img{max-width:82px;max-height:100px}
+  .gubre-authority-card--ministry .gubre-authority-card__logo img{max-width:78px;max-height:92px}
+  .gubre-authority-card__facts{
+    grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:13px;padding-top:13px
+  }
+  .gubre-authority-card__facts strong{font-size:.88rem}
+}
+@media(max-width:480px){
+  .gubre-slide__inner--authority{padding-top:66px}
+  .gubre-authority-card{
+    grid-template-columns:1fr 72px;gap:12px;padding:17px 14px 17px 17px
+  }
+  .gubre-authority-card__eyebrow{font-size:8px}
+  .gubre-authority-card h3{font-size:1.12rem}
+  .gubre-authority-card p{font-size:.76rem}
+  .gubre-authority-card__logo img{max-width:66px;max-height:82px}
+  .gubre-authority-card--ministry .gubre-authority-card__logo img{max-width:62px;max-height:76px}
+}
