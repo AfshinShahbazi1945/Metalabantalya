@@ -247,6 +247,19 @@ table.analiz td.dur{ font-family:var(--font-mono); font-size:12px; color:var(--m
 .acc{ display:grid; grid-template-columns:auto 1fr; gap:clamp(24px,4vw,52px); align-items:center; background:var(--ink); color:var(--white); padding:clamp(32px,4vw,56px); border-radius:var(--r); }
 .acc__logo{ background:var(--white); padding:18px; border-radius:var(--r); display:grid; place-items:center; }
 .acc__logo img{ width:120px; height:auto; }
+.acc__logo a{
+    display:block;
+    transition:transform .25s ease, filter .25s ease;
+}
+
+.acc__logo a:hover{
+    transform:scale(1.05);
+    filter:drop-shadow(0 10px 20px rgba(0,0,0,.18));
+}
+
+.acc__logo a img{
+    display:block;
+}
 .acc__facts{ display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:26px 34px; margin-top:22px; }
 .acc__facts .f-k{ font-family:var(--font-mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted-on-dark); margin-bottom:6px; }
 .acc__facts .f-v{ font-family:var(--font-serif); font-size:1.5rem; color:var(--accent-lite,var(--accent)); }
