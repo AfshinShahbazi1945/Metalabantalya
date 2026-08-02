@@ -91,6 +91,8 @@
 .gate__acc-logo--bakanlik{
   height:clamp(82px,8vw,128px);
   max-width:min(16vw,165px);
+  position:relative;
+  top:-6px;
 }
 
 .gate__choice{
@@ -283,6 +285,8 @@
 .gate__acc-logo--bakanlik{
   height:64px;
   max-width:22vw;
+  position:relative;
+  top:-4px;
 }
 
   .gate__choice{
@@ -336,6 +340,8 @@
 .gate__acc-logo--bakanlik{
   height:52px;
   max-width:23vw;
+  position:relative;
+  top:-3px;
 }
 
   .choice{
