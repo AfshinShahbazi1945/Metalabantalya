@@ -75,17 +75,22 @@
 
 .gate__acc{
   display:flex;
-  align-items:flex-start;
+  align-items:center;
   justify-content:flex-end;
+  gap:18px;
   flex:0 0 auto;
 }
 
 .gate__acc-logo{
   display:block;
   width:auto;
-  height:clamp(110px,11vw,175px);
+  height:clamp(95px,9vw,145px);
   max-width:min(17vw,180px);
   object-fit:contain;
+}
+.gate__acc-logo--bakanlik{
+  height:clamp(82px,8vw,128px);
+  max-width:min(16vw,165px);
 }
 
 .gate__choice{
@@ -271,9 +276,14 @@
   }
 
   .gate__acc-logo{
-    height:82px;
-    max-width:25vw;
-  }
+  height:72px;
+  max-width:24vw;
+}
+
+.gate__acc-logo--bakanlik{
+  height:64px;
+  max-width:22vw;
+}
 
   .gate__choice{
     grid-template-columns:1fr;
