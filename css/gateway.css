@@ -329,9 +329,14 @@
   }
 
   .gate__acc-logo{
-    height:68px;
-    max-width:27vw;
-  }
+  height:58px;
+  max-width:25vw;
+}
+
+.gate__acc-logo--bakanlik{
+  height:52px;
+  max-width:23vw;
+}
 
   .choice{
     min-height:150px;
