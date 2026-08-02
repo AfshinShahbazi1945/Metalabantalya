@@ -75,7 +75,7 @@
 
 .gate__acc{
   display:flex;
-  align-items:center;
+  align-items:flex-end;
   justify-content:flex-end;
   gap:18px;
   flex:0 0 auto;
