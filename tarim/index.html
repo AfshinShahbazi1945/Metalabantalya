@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 
 <html data-lab="tarim" lang="tr">
@@ -197,5 +198,96 @@
 </a>
 
 <script src="../js/main.js"></script>
+</body>
+</html>
+-->
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>METALAB | Güncelleniyor</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#0d1117;
+    color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    overflow:hidden;
+}
+
+.container{
+    text-align:center;
+}
+
+.logo{
+    font-size:52px;
+    font-weight:700;
+    letter-spacing:4px;
+    margin-bottom:25px;
+}
+
+.title{
+    font-size:44px;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.text{
+    color:#bfc7d5;
+    font-size:20px;
+    max-width:700px;
+    line-height:1.8;
+    margin:auto;
+}
+
+.dots::after{
+    content:"";
+    animation:dots 1.5s infinite;
+}
+
+@keyframes dots{
+    0%{content:"";}
+    33%{content:".";}
+    66%{content:"..";}
+    100%{content:"...";}
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="logo">METALAB</div>
+
+<div class="title">
+⚪ Güncellenmektedir<span class="dots"></span>
+</div>
+
+<div class="text">
+Toprak, Su ve Bitki Analiz Laboratuvarı sayfamız üzerinde çalışmalarımız devam etmektedir.<br><br>
+En kısa sürede sizlerle buluşacaktır.
+</div>
+
+</div>
+
 </body>
 </html>
