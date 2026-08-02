@@ -25,6 +25,7 @@
 
   function show(index, restartTimer = true) {
     current = (index + slides.length) % slides.length;
+    hero.dataset.current = String(current);
 
     slides.forEach((slide, i) => {
       const active = i === current;
