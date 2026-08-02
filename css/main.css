@@ -144,7 +144,37 @@ p.lead{ font-size:clamp(1.05rem,1.5vw,1.28rem); color:var(--muted); max-width:56
 }
 .nav__links a:hover::after, .nav__links a.is-active::after{ right:0; }
 .nav__links a.is-active{ color:var(--ink); }
-.nav__cta{ display:flex; align-items:center; gap:18px; }
+/* Üst menü — Bakanlık ve TÜRKAK logoları */
+.nav__official-logos{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  height:58px;
+  flex:0 0 auto;
+}
+
+.nav__official-logo{
+  display:block;
+  width:auto;
+  max-width:52px;
+  object-fit:contain;
+  object-position:center;
+  transition:
+    transform .28s var(--ease),
+    opacity .28s ease;
+}
+
+.nav__official-logo--bakanlik{
+  height:46px;
+}
+
+.nav__official-logo--turkak{
+  height:50px;
+}
+
+.nav__official-logo:hover{
+  transform:translateY(-2px) scale(1.035);
+}
 .nav__back{ font-family:var(--font-mono); font-size:11px; letter-spacing:.12em; color:var(--muted); text-transform:uppercase; }
 .nav__back:hover{ color:var(--accent); }
 .nav__toggle{ display:none; background:none; border:1px solid var(--line); border-radius:var(--r); width:42px; height:38px; }
