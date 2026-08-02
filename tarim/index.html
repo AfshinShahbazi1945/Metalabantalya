@@ -9,6 +9,169 @@
 <link href="../images/new.png" rel="icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="../css/main.css" rel="stylesheet"/>
+
+<style>
+/* =========================================================
+   ANA SAYFA — Kompakt TÜRKAK akreditasyon kartı
+   ========================================================= */
+.home-accredit{
+  padding-block:clamp(34px,5vw,72px);
+}
+
+.home-accredit__card{
+  position:relative;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:clamp(26px,4vw,52px);
+  align-items:center;
+  padding:clamp(28px,4vw,50px);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:22px;
+  background:linear-gradient(135deg,rgba(18,53,45,.98),rgba(9,38,32,.98));
+  color:#fff;
+  box-shadow:0 26px 70px rgba(18,53,45,.16);
+  transition:transform .35s var(--ease),box-shadow .35s ease,border-color .35s ease;
+}
+
+.home-accredit__card:hover{
+  transform:translateY(-4px);
+  border-color:color-mix(in srgb,var(--accent-lite) 48%,transparent);
+  box-shadow:0 34px 86px rgba(18,53,45,.22);
+}
+
+.home-accredit__logo{
+  display:grid;
+  place-items:center;
+  width:clamp(130px,15vw,180px);
+  min-height:150px;
+  padding:20px;
+  border-radius:18px;
+  background:#fff;
+}
+
+.home-accredit__logo a{
+  display:block;
+  transition:transform .28s ease,filter .28s ease;
+}
+
+.home-accredit__logo a:hover{
+  transform:scale(1.045);
+  filter:drop-shadow(0 10px 20px rgba(0,0,0,.16));
+}
+
+.home-accredit__logo img{
+  display:block;
+  width:125px;
+  height:auto;
+}
+
+.home-accredit__eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:13px;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--accent-lite);
+}
+
+.home-accredit__eyebrow::before{
+  content:"";
+  width:26px;
+  height:1px;
+  background:currentColor;
+}
+
+.home-accredit__title{
+  max-width:19ch;
+  margin:0;
+  font-family:var(--font-serif);
+  font-size:clamp(2rem,3.8vw,3.55rem);
+  line-height:1;
+  color:#fff;
+}
+
+.home-accredit__text{
+  max-width:60ch;
+  margin-top:16px;
+  color:rgba(255,255,255,.72);
+  font-size:15px;
+  line-height:1.7;
+}
+
+.home-accredit__meta{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:10px 14px;
+  margin-top:24px;
+}
+
+.home-accredit__pill{
+  display:inline-flex;
+  align-items:center;
+  min-height:34px;
+  padding:7px 12px;
+  border:1px solid rgba(255,255,255,.17);
+  border-radius:999px;
+  background:rgba(255,255,255,.06);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.05em;
+  color:rgba(255,255,255,.84);
+}
+
+.home-accredit__link{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-left:auto;
+  color:var(--accent-lite);
+  font-size:13px;
+  font-weight:700;
+  border-bottom:1px solid currentColor;
+  padding-bottom:3px;
+  transition:gap .28s var(--ease),opacity .28s ease;
+}
+
+.home-accredit__link:hover{
+  gap:12px;
+  opacity:.82;
+}
+
+.home-accredit__badge{
+  position:absolute;
+  top:18px;
+  right:18px;
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:8px 11px;
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.14);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.78);
+}
+
+@media(max-width:760px){
+  .home-accredit__card{grid-template-columns:1fr}
+  .home-accredit__logo{width:150px;min-height:130px}
+  .home-accredit__link{margin-left:0}
+  .home-accredit__badge{
+    position:static;
+    justify-self:start;
+    margin-bottom:-6px;
+  }
+}
+</style>
+
 </head><body>
 <header class="nav">
 <div class="wrap nav__in">
@@ -118,6 +281,46 @@
 </div></div>
 </div>
 </section>
+
+<section class="home-accredit">
+  <div class="wrap">
+    <div class="home-accredit__card reveal">
+      <div class="home-accredit__badge">✓ TÜRKAK Akrediteli</div>
+
+      <div class="home-accredit__logo">
+        <a href="../documents/metalab-akreditasyon-sertifikasi.pdf"
+           target="_blank"
+           rel="noopener noreferrer"
+           title="Akreditasyon Sertifikasını Görüntüle">
+          <img src="../images/turkak-logo.png"
+               alt="TÜRKAK akreditasyon sertifikasını görüntüle">
+        </a>
+      </div>
+
+      <div class="home-accredit__content">
+        <span class="home-accredit__eyebrow">Akreditasyon</span>
+
+        <h2 class="home-accredit__title">Bilimsel analizlerle tarımsal üretime güven</h2>
+
+        <p class="home-accredit__text">Toprak, su ve bitki analizlerimiz TS EN ISO/IEC 17025:2017 standardı kapsamında teknik yeterlilik ve tarafsızlık ilkeleriyle yürütülmektedir. Güvenilir ve izlenebilir sonuçlarla doğru gübreleme, verimli üretim ve sürdürülebilir tarım kararlarını destekliyoruz.</p>
+
+        <div class="home-accredit__meta">
+          <span class="home-accredit__pill">AB-2181-T</span>
+          <span class="home-accredit__pill">ISO/IEC 17025</span>
+          <span class="home-accredit__pill">Geçerlilik · 11.05.2030</span>
+
+          <a class="home-accredit__link"
+             href="../documents/metalab-akreditasyon-sertifikasi.pdf"
+             target="_blank"
+             rel="noopener noreferrer">
+            Sertifikayı Görüntüle <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section section--tight">
 <div class="wrap split">
 <div class="split__img reveal">
