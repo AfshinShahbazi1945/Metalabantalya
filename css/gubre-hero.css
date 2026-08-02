@@ -184,14 +184,13 @@
 
 .gubre-hero__progress{
   position:absolute;
-  left:clamp(8px,2vw,28px);
+  left:clamp(6px,1.2vw,18px);
   bottom:32px;
   display:flex;
   align-items:center;
-  gap:8px;
+  gap:4px;
   pointer-events:auto;
 }
-
 .gubre-hero__arrows{
   position:absolute;
   inset:0;
@@ -203,7 +202,7 @@
   display:flex;
   align-items:center;
   justify-content:center;
-  width:54px;
+  width:46px;
   height:34px;
   border:0;
   background:transparent;
