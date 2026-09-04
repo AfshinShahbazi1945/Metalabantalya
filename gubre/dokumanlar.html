@@ -29,7 +29,7 @@
   .docs-head h2{font-size:clamp(2.25rem,4vw,3.8rem);color:var(--ink);}
   .docs-head p{max-width:48ch;color:var(--muted);}
   .docs-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;}
-  .doc-card{position:relative;overflow:hidden;min-height:220px;padding:28px;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 12px 36px rgba(18,53,45,.055);display:grid;grid-template-columns:1fr auto;grid-template-rows:auto 1fr auto;gap:18px;transition:transform .35s var(--ease),box-shadow .35s,border-color .35s;cursor:default;}
+  .doc-card{position:relative;overflow:hidden;min-height:220px;padding:28px;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 12px 36px rgba(18,53,45,.055);display:grid;grid-template-columns:1fr auto;grid-template-rows:auto 1fr auto;gap:18px;transition:transform .35s var(--ease),box-shadow .35s,border-color .35s;cursor:pointer;text-decoration:none;color:inherit;}
   .doc-card:before{content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:var(--accent);transform:scaleX(.18);transform-origin:left;transition:transform .35s var(--ease);}
   .doc-card:hover{transform:translateY(-5px);box-shadow:0 24px 58px rgba(18,53,45,.11);border-color:color-mix(in srgb,var(--accent) 28%,var(--line));}
   .doc-card:hover:before{transform:scaleX(1);}
@@ -101,18 +101,24 @@
   <div class="wrap">
     <div class="docs-head"><div><div class="docs-head__label">01 · Resmî Formlar</div><h2>Analiz süreci dokümanları</h2></div><p>Numune kabulü ve analiz kapsamına ilişkin temel dokümanlar.</p></div>
     <div class="docs-grid">
-      <article class="doc-card" aria-disabled="true">
+      <a class="doc-card"
+       href="../documents/gubre-analiz-talep-ve-teklif-formu.pdf"
+       target="_blank"
+       rel="noopener noreferrer">
       <span class="doc-card__no">01</span>
       <span class="doc-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></svg></span>
       <div class="doc-card__body"><h3>Analiz Talep Formu</h3><p>Numune kabulü öncesinde analiz taleplerinin iletilmesi için kullanılan form.</p></div>
-      <div class="doc-card__foot"><span class="doc-card__status">Yakında eklenecek</span><span class="doc-card__arrow">→</span></div>
-    </article>
-      <article class="doc-card" aria-disabled="true">
+      <div class="doc-card__foot"><span class="doc-card__status">PDF · Görüntüle</span><span class="doc-card__arrow">→</span></div>
+    </a>
+      <a class="doc-card"
+       href="../documents/gubre-analiz-listesi-2026.pdf"
+       target="_blank"
+       rel="noopener noreferrer">
       <span class="doc-card__no">02</span>
       <span class="doc-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></svg></span>
       <div class="doc-card__body"><h3>Analiz Listesi</h3><p>Laboratuvarımızda sunulan analiz hizmetlerini ve parametreleri inceleyebileceğiniz liste.</p></div>
-      <div class="doc-card__foot"><span class="doc-card__status">Yakında eklenecek</span><span class="doc-card__arrow">→</span></div>
-    </article>
+      <div class="doc-card__foot"><span class="doc-card__status">PDF · Görüntüle</span><span class="doc-card__arrow">→</span></div>
+    </a>
     </div>
   </div>
 </section>
@@ -127,18 +133,24 @@
       <div class="doc-card__body"><h3>Şikâyet Formu</h3><p>Laboratuvar hizmetlerimize ilişkin şikâyetlerinizi kayıt altına almak için kullanılan form.</p></div>
       <div class="doc-card__foot"><span class="doc-card__status">Yakında eklenecek</span><span class="doc-card__arrow">→</span></div>
     </article>
-      <article class="doc-card" aria-disabled="true">
+      <a class="doc-card"
+       href="../documents/gubre-sikayet-akis-semasi.pdf"
+       target="_blank"
+       rel="noopener noreferrer">
       <span class="doc-card__no">04</span>
       <span class="doc-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></svg></span>
       <div class="doc-card__body"><h3>Şikâyet Akış Şeması</h3><p>Şikâyetlerin kabulünden sonuçlandırılmasına kadar izlenen süreci gösterir.</p></div>
-      <div class="doc-card__foot"><span class="doc-card__status">Yakında eklenecek</span><span class="doc-card__arrow">→</span></div>
-    </article>
-      <article class="doc-card" aria-disabled="true">
+      <div class="doc-card__foot"><span class="doc-card__status">PDF · Görüntüle</span><span class="doc-card__arrow">→</span></div>
+    </a>
+      <a class="doc-card"
+       href="../documents/gubre-musteri-anket-formu.pdf"
+       target="_blank"
+       rel="noopener noreferrer">
       <span class="doc-card__no">05</span>
       <span class="doc-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></svg></span>
       <div class="doc-card__body"><h3>Müşteri Memnuniyet Anketi Formu</h3><p>Hizmet kalitemizi değerlendirerek gelişim sürecimize katkı sağlayabileceğiniz form.</p></div>
-      <div class="doc-card__foot"><span class="doc-card__status">Yakında eklenecek</span><span class="doc-card__arrow">→</span></div>
-    </article>
+      <div class="doc-card__foot"><span class="doc-card__status">PDF · Görüntüle</span><span class="doc-card__arrow">→</span></div>
+    </a>
     </div>
   </div>
 </section>
